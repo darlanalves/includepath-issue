@@ -1,0 +1,28 @@
+{
+	"name":    "includepath-issue",
+	"version": "0.0.0",
+	"private": true,
+
+	"scripts":
+	{
+		"rollup": "node rollup"
+	},
+
+	"devDependencies":
+	{
+		"rollup":
+			"^0.31",
+
+		"rollup-plugin-commonjs":
+			"^3",
+
+		"rollup-plugin-node-resolve":
+			"^1.7",
+
+		"rollup-plugin-includepaths":
+			"^0.1",
+
+		"rollup-plugin-node-builtins":
+			"^1"
+	}
+}
