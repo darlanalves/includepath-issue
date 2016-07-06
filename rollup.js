@@ -1,4 +1,3 @@
-
 var rollup = require('rollup')
 
 var builtins = require('rollup-plugin-node-builtins')
@@ -11,7 +10,7 @@ var write = require('fs').writeFileSync
 bundle()
 .then(bundle =>
 {
-	console.log(bundle.code)
+	// console.log(bundle.code)
 	write(__dirname + '/bundle.js', bundle.code)
 },
 error =>
@@ -30,6 +29,7 @@ function bundle ()
 
 		plugins:
 		[
+			include({ external: [], paths: [ 'buns' ] }),
 			builtins(),
 			resolve(
 			{
@@ -40,14 +40,6 @@ function bundle ()
 			{
 				sourceMap: false
 			}),
-
-			// (3) turning off include and comment (1) and (2) to stabilize
-			/* 
-			include(
-			{
-				paths: [ __dirname, __dirname + '/buns' ]
-			})
-			// */
 		]
 	})
 	.then(bundle =>
